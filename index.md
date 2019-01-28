@@ -93,8 +93,8 @@
 | URL | 備考 |
 |-|-|
 |[設計書(初版)](https://drive.google.com/open?id=1PBPC-ryoIpd0vv1dmeGV4g9G8Skd2V-4ZmR3kmuv1aQ)|Googleドライブ|
+|[プレゼン資料](https://drive.google.com/open?id=1x-ebxXXLJ2KlmSz3z30IUccbRDWbMduf)|Googleドライブ 一部デザインが崩れている|
 |[設計書（第2版）](https://drive.google.com/open?id=1Gr8TlcWyGEIbH7owugbkJvEV1jPTQhBuHDNjHFOlweI)|Googleドライブ|
-|[プレゼン資料](https://drive.google.com/drive/folders/1GxJkXg04vrkAfiEHpiVH-0ZI0XhxbX9V)|一部デザインが崩れている|
 |[プロトタイプ](https://prottapp.com/p/de367f#/s/5b4c574a4942fb6afad28d54)|スマホからの閲覧はアプリが必要 |   
    
 
@@ -128,7 +128,7 @@ Firebaseへ切り替えた。
 | タイムライン | 全てのつぶやきが表示されている |
 | つぶやき | 文字・画像を使用してつぶやく・削除可能 |
 | コメント | つぶやきに対してコメントを残す・削除可能 |
-| 検索 | ユーザーのつぶやきの全文検索 |
+| 検索 | ユーザー・つぶやきの全文検索 |
 | プロフィール | プロフィール画像・名前・性別・学科・自己紹介文・サークル<br>学科は自動で設定、性別は初回プロフィール入力時に設定|
 
 ## 2-4.言語・フレームワーク
@@ -181,4 +181,7 @@ Firebaseへ切り替えた。
 # 4.結果と考察
 
 ---
+
+## 4-1.アクティブ数
+
 
