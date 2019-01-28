@@ -90,9 +90,16 @@
 
 # 2.作品について
 
-## 2-1.企画書・概要設計書・プロトタイプ
+## 2-1.企画書・概要設計書・プロトタイプ     
 
-[企画書]()   
-[概要設計書]()   
-[プロトタイプ]()   
+| URL | 説明 |
+|-----|------|
+|[設計書(初版)](https://drive.google.com/open?id=1PBPC-ryoIpd0vv1dmeGV4g9G8Skd2V-4ZmR3kmuv1aQ)|さんぷる|
+|[設計書（第2版）](https://drive.google.com/open?id=1Gr8TlcWyGEIbH7owugbkJvEV1jPTQhBuHDNjHFOlweI)|さんぷる|
+|[プロトタイプ](https://prottapp.com/p/de367f#/s/5b4c574a4942fb6afad28d54)|スマホからの閲覧はアプリが必要 |   
+   
+      
+### 大幅な変更点
 
+* フレームワークをBootstrapからVue.jsとonsenUIへ変更。
+* サーバーはすべてfirebaseへ。
