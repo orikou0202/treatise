@@ -89,18 +89,45 @@
 
 ## 2-1.設計書・プロトタイプ等    
 
-| URL | 説明 |
+| URL | 備考 |
 |-|-|
-|[設計書(初版)](https://drive.google.com/open?id=1PBPC-ryoIpd0vv1dmeGV4g9G8Skd2V-4ZmR3kmuv1aQ)|さんぷる|
-|[設計書（第2版）](https://drive.google.com/open?id=1Gr8TlcWyGEIbH7owugbkJvEV1jPTQhBuHDNjHFOlweI)|さんぷる|
+|[設計書(初版)](https://drive.google.com/open?id=1PBPC-ryoIpd0vv1dmeGV4g9G8Skd2V-4ZmR3kmuv1aQ)|Googleドライブ|
+|[設計書（第2版）](https://drive.google.com/open?id=1Gr8TlcWyGEIbH7owugbkJvEV1jPTQhBuHDNjHFOlweI)|Googleドライブ|
 |[プロトタイプ](https://prottapp.com/p/de367f#/s/5b4c574a4942fb6afad28d54)|スマホからの閲覧はアプリが必要 |   
    
       
 ## 2-2.機能一覧
 
+| 機能 | 説明 |
+|-----|------|
+| タイムライン | 全てのつぶやきが表示されている |
+| つぶやき | 文字・画像を使用してつぶやく・削除可能 |
+| コメント | つぶやきに対してコメントを残す・削除可能 |
+| 検索 | ユーザーのつぶやきの全文検索 |
+| プロフィール設定 | プロフィール画像・名前・自己紹介文・サークルの設定が可能<br>学科は自動で設定、性別は初回プロフィール入力時のみ|
+
 ## 2-3.言語・フレームワーク
 
-| | |
-|--|--|
-| 言語 | HTML5, CSS3, JavaScript |
-|フレームワーク| Vue.js onsenUI |
+言語： HTML5, CSS3, JavaScript   
+フレームワーク： Vue.js, onsenUI   
+ライブラリ： Jimp
+
+## 2-4.使用したツール・サービス
+
+| サービス・ツール名 | 使用例 |
+|-----------------|--------------|
+| Firebase | データベース・ホスティング・会員登録などの機能・アナリティクス |
+| Cloud Functions | 全文検索実装 |
+| Algolia | 全文検索を実装してくれるSaaS |
+| GitLab | バージョン管理・GitLab CIによるデプロイ自動化 |
+| Prott | プロトタイプ作成 |
+| Slack | コミュニケーション |
+| ESLint | JavaScriptの構文エラーチェック |
+
+
+## 2-5.リポジトリ
+
+[きゃりったー](https://gitlab.com/career_nexus/sns)
+
+
+# 3.準備
