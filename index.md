@@ -184,6 +184,8 @@ Firebaseへ切り替えた。
 
 ## 4-1.利用率
 
+[利用率のデータ](https://drive.google.com/open?id=1N9yG24hDFYONwUGhpEZLTpQvN1i5I7MD)
+
 全ユーザー
 
 | 学科 | 利用者数 |
@@ -207,6 +209,8 @@ Firebaseへ切り替えた。
 |医療系 | 4 |
 
 ## 4-2.アンケート
+
+[アンケート結果](https://drive.google.com/open?id=1ZeOyvPoxOOLpAU5mI2UgXOWhXQrWfSNq)
 
 | 携帯にTeamsが入っているか | 全体 | ビューティ | こども | グラフィック | 医療系 | TV映像音響 | ITスペシャリスト |
 |------------------------|-----|-----------|-------|-------------|------|-----------|-----------------|
