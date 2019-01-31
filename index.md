@@ -307,7 +307,7 @@ exports.PostMutter = functions.firestore
 
 以下の画像が検索のデータの流れを表したものである。   
 
-![検索](../img/search.jpeg)
+![検索](img/search.jpeg)
 
 ### 6-1-2.iPhoneの画像回転問題
 
