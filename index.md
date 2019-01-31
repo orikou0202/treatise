@@ -254,16 +254,40 @@ Firebaseへ切り替えた。
 
 ## 6-1.苦労した点・工夫した点
 
-### 6-1-1.AlgoliaとCloud Functions for Firebaseで作る全文検索機能
+### 6-1-1.全文検索機能の実装
 
-AlgoliaというSaaSとCloud Functionsを使用して全文検索を実現した。   
-Cloud Functionsで以下のトリガーと処理内容の関数を登録する。  
- 
+Firestore(Firebaseのデータベース)には全文検索の機能がついておらず、AlgoliaとCloud Functionsを使用して全文検索を実装した。   
+Cloud Functionsで、以下のトリガーと処理を設定した関数を登録する。   
+
 | トリガー | 処理内容 |
 |---------|---------|
-| プロフィールが更新された時 | 更新後のプロフィールのデータをAlgoliaへ送信 |
-| つぶやきが投稿された時 | つぶやきのデータをAlgoliaへ送信 |
-| つぶやきが削除された時 | Algoliaにあるつぶやきのデータを削除 |
+| つぶやきが投稿された時 | 投稿されたつぶやきのデータをAlgoliaへ送信する |
+| つぶやきが削除された時 | 削除されたつぶやきのIDと一致するAlgoliaのデータを削除する |
+| プロフィールが更新された時 | 更新後のプロフィールのデータをAlgoliaへ送信する |
 
-ユーザーとつぶやきの検索はAlgoliaへリクエストする。   
+このように、Firebase側のデータとAlgoliaのデータを同期させ、検索はAlgoliaで行う。  
+以下のコードは実際にfunctionsに登録した関数である。 
 
+```
+exports.PostMutter = functions.firestore
+    .document('timeline/{docId}')
+    .onCreate((mutter) => {
+        const data = mutter.data();
+
+        const algoliaObject = {
+            objectID: mutter.id,
+            data,
+        };
+
+        const index = client.initIndex(ALGOLIA_MUTTER_INFO);
+        return index.saveObject(algoliaObject);
+    });
+```
+
+この関数では、つぶやきのドキュメントが作成された時、作成されたドキュメントのデータをオブジェクトに入れ、そのオブジェクトをAlgoliaへ送信するという処理を行なっている。
+
+### 6-1-2.iPhoneの画像反転問題
+
+iPhoneで撮影した写真をiOS以外の端末で閲覧すると回転してしまう問題が浮上した。   
+
+#### 原因
