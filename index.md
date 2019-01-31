@@ -137,7 +137,8 @@ Firebaseへ切り替えた。
 
 テーマ： 人と人との繋がり, よりシンプルに   
 作成者：グラフィック科2年 上原優人   
-実際の成果物：
+実際の成果物   
+![logo](img/logo.png)
 
 ## 2-4.言語・フレームワーク
 
@@ -307,7 +308,7 @@ exports.PostMutter = functions.firestore
 
 以下の画像が検索のデータの流れを表したものである。   
 
-![検索](img/search.jpeg)
+![search](img/search.jpeg)
 
 ### 6-1-2.iPhoneの画像回転問題
 
