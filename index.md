@@ -51,7 +51,9 @@
 
     + 6-1.苦労した点・工夫した点
     
-        + 6-1-1.AlgoliaとCloud Functions for Firebaseで作る全文検索機能
+        + 6-1-1.全文検索機能の実装
+        + 6-1-2.iPhoneの画像回転問題
+        + 6-1-3.プロジェクトマネジメント
         
     + 6-2.感想
 
@@ -140,8 +142,8 @@ Firebaseへ切り替えた。
 | サービス・ツール名 | 使用例 |
 |-----------------|--------------|
 | Firebase | データベース・ホスティング・アナリティクス・会員登録などの機能 |
-| Cloud Functions | 全文検索の実装 |
-| Algolia | 全文検索の実装 |
+| Cloud Functions | 全文検索の実装 6-1-1で説明 |
+| Algolia | 全文検索の実装 6-1-1で説明 |
 | GitLab | バージョン管理・GitLab CIによるデプロイ自動化・Issue boardでのタスク管理 |
 | Prott | プロトタイプ作成・イメージの共有 |
 | Slack | コミュニケーションツール・GitLabとの連携 |
@@ -265,6 +267,7 @@ Firestore(Firebaseのデータベース)では全文検索の機能をサポー�
 #### 対策
 
 AlgoliaとCloud Functionsを使用して全文検索を実装した。（Algoliaのライブラリも使用）   
+Algoliaとは、全文検索を可能にしてくれるサービスで、Cloud Functionsはイベントをトリガーにして任意の処理を実行できるサービスである。   
 Cloud Functionsで、以下のトリガーと処理を設定した関数を登録する。   
 
 | トリガー | 処理内容 |
@@ -298,9 +301,36 @@ exports.PostMutter = functions.firestore
 
 プレゼンのやつ
 
-### 6-1-2.iPhoneの画像反転問題
+### 6-1-2.iPhoneの画像回転問題
 
-iPhoneで撮影した写真をiOS以外の端末で閲覧すると回転してしまう問題が浮上した。   
+iPhoneで撮影した写真をiOS以外のプラットフォームで閲覧すると回転してしまう問題が浮上した。   
 
 #### 原因
 
+iPhoneで撮影した写真は内部的には傾いた状態で、Exifのorientation情報で傾きを修正していることが分かった。  
+orientation情報を読み込むか読み込まないかで画像の向きが変わってしまう。    
+
+#### 対策
+
+ライブラリの「Jimp」を使用して、FileAPIで画像を読み込んだ際に傾きを修正・画像の圧縮等を行い、画像のアップロードを行う。   
+
+以下のコードが実際に使用したJimpのコードである。
+```
+ImagePress(img) {
+ this.dialogVisible = true;
+ Jimp.read(img, (error, lenna) => {
+    lenna.resize(600, Jimp.AUTO)
+      .quality(70).getBase64(Jimp.MIME_JPEG, (err, image) => {
+        this.img = image;
+        this.dialogVisible = false;
+    });
+ });
+}
+```
+
+これにより、orientation情報で傾きを修正するのではなく、画像そのものが傾きがない状態になるので、iOS以外のプラットフォームで画像が回転する現象はなくなった。   
+余談だが、Jimpを使用する前は画像サイズが非常に大きく、読み込みに時間がかかってしまっていたので、Jimpで圧縮も行うことができたのは非常に助かった。
+
+### 6-1-3.プロジェクトマネジメント
+
+当チームはプロジェクトマネジメント
